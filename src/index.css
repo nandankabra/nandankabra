@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;600;700;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* Define custom fonts and colors */
+  --font-sans: "Urbanist", sans-serif;
+  --color-slate-850: #151e2e;
+  --color-slate-950: #0b0f19;
+  
+  /* Define the background animation */
+  --animate-gradient-x: gradient-x 15s ease infinite;
+  @keyframes gradient-x {
+    0%, 100% {
+      background-size: 200% 200%;
+      background-position: left center;
+    }
+    50% {
+      background-size: 200% 200%;
+      background-position: right center;
+    }
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--color-slate-950); }
+::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-cyan-500); }
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Replaced @apply with standard CSS variables mapped to the theme 
+  to prevent Vite parsing errors at the root level.
+*/
+body {
+  background-color: var(--color-slate-950);
+  color: var(--color-slate-300);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: var(--color-cyan-500);
+  color: white;
+}
